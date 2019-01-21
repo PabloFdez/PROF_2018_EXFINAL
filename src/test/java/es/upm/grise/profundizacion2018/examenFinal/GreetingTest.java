@@ -55,6 +55,19 @@ public class GreetingTest {
 //				assertEquals("Buenas tardes", greeting.getGreeting(Language.SPANISH));
 //			}
 
+	@Test
+	public void smokeTest4(){
+		this.greeting.getGreeting(null);
+		verify(this.greeting,times(1)).getDefaultLanguage();
+		verify(this.greeting,times(1)).getMessage(anyVararg(),anyVararg());
+	}
+
+	@Test
+	public void smokeTest5(){
+		this.greeting.getGreeting(Language.SPANISH);
+		verify(this.greeting,times(0)).getDefaultLanguage();
+		verify(this.greeting,times(1)).getMessage(anyVararg(),anyVararg());
+	}
 
 }
 

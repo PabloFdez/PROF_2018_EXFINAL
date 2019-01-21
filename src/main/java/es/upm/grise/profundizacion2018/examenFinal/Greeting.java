@@ -9,7 +9,8 @@ int hour = getHour();
 
 		// Find out the greeting language
 		if ( language == null )
-			language = Message.getDefaultLanguage();
+			//language = Message.getDefaultLanguage();
+			language = getDefaultLanguage();
 		
 
 		// Get the moment of the day
@@ -24,7 +25,8 @@ int hour = getHour();
 			
 
 		// Return the message		
-		return Message.getMessage( moment, language );
+		//return Message.getMessage( moment, language );
+		return getMessage(language, moment);
 	}	
 
 	int getHour() {
@@ -33,6 +35,14 @@ int hour = getHour();
 
 	Calendar getCalendar() {
 		return Calendar.getInstance();
+	}
+	
+	Language getDefaultLanguage() {
+		return Message.getDefaultLanguage();
+	}
+	
+	String getMessage(Language language, TimeOfTheDay moment) {
+		return Message.getMessage( moment, language );
 	}
 }
 

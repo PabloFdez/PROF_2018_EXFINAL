@@ -26,7 +26,8 @@ int hour = getHour();
 		// Return the message		
 		return Message.getMessage( moment, language );
 	}	
-private int getHour() {
+
+	int getHour() {
 		return getCalendar().get( Calendar.HOUR_OF_DAY );
 	}
 
